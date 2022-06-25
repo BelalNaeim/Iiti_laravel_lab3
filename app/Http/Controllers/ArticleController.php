@@ -34,7 +34,6 @@ class ArticleController extends Controller {
         //
         return View( 'articale.create' );
 
-
     }
 
     /**
@@ -84,10 +83,9 @@ class ArticleController extends Controller {
     public function edit( $id ) {
         //
 
+        $data = DB :: table( 'articales' )->find( $id );
 
-        $data = DB :: table('articales')->find($id);
-
-        return view('articale.edit',['data' => $data]);
+        return view( 'articale.edit', [ 'data' => $data ] );
     }
 
     /**
@@ -106,7 +104,7 @@ class ArticleController extends Controller {
         $final = 'blogImages/' . $image_name;
         $date = Carbon::now();
 
-        $articale = Articale::find($id);
+        $articale = Articale::find( $id );
         $articale->title = $request->title;
         $articale->content = $request->content;
         $articale->user_id = Auth::id();
@@ -126,7 +124,7 @@ class ArticleController extends Controller {
 
     public function destroy( $id ) {
         //
-        $articale = Articale::find($id)->delete();
+        $articale = Articale::find( $id )->delete();
         return redirect()->route( 'articales.index' );
 
     }

@@ -23,6 +23,7 @@ class CreateArticalesTable extends Migration
                ->constrained('users')
                ->onUpdate('cascade')
                ->onDelete('cascade');
+
         });
     }
 

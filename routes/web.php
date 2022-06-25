@@ -25,6 +25,6 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 //Articales Routes
-Route::resource('articales',ArticleController::class);
+Route::resource('articales',ArticleController::class)->middleware('auth');
 //Contacts Routes
 Route::resource('contacts',ContactController::class);
